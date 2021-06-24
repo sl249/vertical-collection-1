@@ -480,6 +480,20 @@ testScenarios(
 );
 
 testScenarios(
+  'Can scroll to a specific index using the component public API',
+  dynamicSimpleScenarioFor(getNumbers(0, 50), { itemHeight: 100 }),
+  standardTemplate,
+
+  async function(assert) {
+    assert.expect(1);
+
+    await this.get('api').scrollToItem(10);
+
+    assert.equal(find('.vertical-item:first-of-type').textContent.trim(), '10 10', 'the 10th item in the list should be rendered first');
+  }
+);
+
+testScenarios(
   'The collection does not allow interaction before being setup',
   standardScenariosFor(getNumbers(100, 100)),
   standardTemplate,
