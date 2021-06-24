@@ -95,6 +95,8 @@ export const standardTemplate = hbs`
 
       key=(either-or key "@identity")
 
+      registerAPI=(action (mut api))
+
       as |item i|}}
       <div
         class="vertical-item"
